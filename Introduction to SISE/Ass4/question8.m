@@ -1,0 +1,1 @@
+﻿x = [1 8 3 9 0 1];disp(["The sum of x is: ",num2str(sum(x)),"\n"]); % a sum the vectors valuesfor i=1:length(x)    disp(["The 'SUM RUM' of the vector until " num2str(x(i)) " is " num2str(sum(x(1:i)))]);    % b - print the result every itteration    disp(["The sin of " num2str(x(i)) " is ", num2str(sin(x(i))),"\n"]);     % c - print the sin of any valueend
