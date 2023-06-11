@@ -1,0 +1,27 @@
+package assignment4;
+import java.util.ArrayList;
+
+import static assignment4.Constants.*;
+
+public abstract class Piece {
+    Position pos;
+    PieceColor color;
+    public Piece(Position position, PieceColor color){
+        this.pos=position;
+        this.color=color;
+    }
+    public abstract char getMarker();
+    public abstract ArrayList<Move> getPossibleMoves(Board board);
+    public void setPosition(Position position){
+        this.pos=position;
+    }
+    public PieceColor getColor(){return this.color;}
+    public Position getPosition(){return this.pos;}
+
+    @Override
+    public String toString(){
+       return pos.toString()+getColorMarker(color);
+    }
+    public abstract boolean equals(Object o);
+
+}
