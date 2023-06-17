@@ -1,9 +1,9 @@
-package assignment4;
+package assignment4.toCopyFrom;
 
 public class TankEatMove extends Move {
-    public TankEatMove(Position startPos, Position endPos) {
-        super(startPos, endPos);
-    }
+
+    public TankEatMove(Position startPos, Position endPos) {super(startPos, endPos);}
+
     @Override
     public void updateBoard(Board board){
         Piece[][] matrix = board.getUnderlyingMatrix();

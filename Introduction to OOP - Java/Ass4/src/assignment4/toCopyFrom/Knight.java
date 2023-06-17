@@ -1,18 +1,15 @@
-package assignment4;
-
-import java.util.ArrayList;
+package assignment4.toCopyFrom;
 import static assignment4.Constants.*;
 
+import java.util.ArrayList;
 
 public class Knight extends Piece {
-    Knight(Position position,Constants.PieceColor color){
-        super(position,color);
+    Knight(Position position, Constants.PieceColor color) {
+        super(position, color);
     }
 
     @Override
-    public char getMarker() {
-        return 'N';
-    }
+    public char getMarker() {return 'N';}
 
     @Override
     public ArrayList<Move> getPossibleMoves(Board board) {

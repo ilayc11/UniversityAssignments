@@ -1,22 +1,19 @@
-package assignment4;
+package assignment4.toCopyFrom;
+
 import java.util.ArrayList;
 
 import static assignment4.Constants.getColorMarker;
 
-
 public class Tank extends Piece {
     private int cooldown;
-    Tank(Position position,Constants.PieceColor color){
-        super(position,color);
-        this.cooldown=0;
+
+    Tank(Position position, Constants.PieceColor color) {
+        super(position, color);
+        this.cooldown = 0;
     }
-    public int getCooldown(){return this.cooldown;}
-    public void setCooldown(int cooldown){this.cooldown=cooldown;}
 
     @Override
-    public char getMarker() {
-        return 'T';
-    }
+    public char getMarker() {return 'T';}
 
     @Override
     public ArrayList<Move> getPossibleMoves(Board board) {
@@ -122,8 +119,12 @@ public class Tank extends Piece {
 
     }
 
+    public int getCooldown(){return this.cooldown;}
+
+    public void setCooldown(int cooldown) {this.cooldown = cooldown;}
+
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         if(this == obj)
             return true;
         if(obj instanceof Tank){
@@ -133,5 +134,4 @@ public class Tank extends Piece {
         }
         return false;
     }
-
 }

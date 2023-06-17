@@ -1,4 +1,6 @@
-package assignment4;
+package assignment4.toCopyFrom;
+import static assignment4.Constants.*;
+
 
 public class Move {
     protected Position startingPos;
@@ -14,6 +16,16 @@ public class Move {
 
     public void updateBoard(Board board){
         board.updatePosition(this.startingPos,this.endingPos);
+        /*
+        Piece[][] matrix = board.getUnderlyingMatrix();
+        Piece currPiece = matrix[getStartPos().getRow()][getStartPos().getCol()];
+        if(currPiece != null){
+            currPiece.setPosition(endingPos);
+            matrix[getEndPos().getRow()][getEndPos().getCol()] = currPiece;
+            matrix[getStartPos().getRow()][getStartPos().getCol()] = null;
+        }
+
+         */
     }
 
     @Override

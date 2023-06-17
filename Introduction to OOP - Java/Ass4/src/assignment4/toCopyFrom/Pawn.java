@@ -1,10 +1,9 @@
-package assignment4;
-
-import java.util.ArrayList;
+package assignment4.toCopyFrom;
 import static assignment4.Constants.*;
-
+import java.util.ArrayList;
 
 public class Pawn extends Piece {
+
     Pawn(Position position, Constants.PieceColor color) {
         super(position, color);
     }
@@ -16,7 +15,7 @@ public class Pawn extends Piece {
 
     @Override
     public ArrayList<Move> getPossibleMoves(Board board) {
-        Move up, down, left, right;
+        Move upwards, downwards, leftSlant, rightSlant;
         ArrayList<Move> possibleMoves = new ArrayList<>();
         Piece[][] matrix = board.getUnderlyingMatrix();
         Position currPosition = this.getPosition();
@@ -27,23 +26,23 @@ public class Pawn extends Piece {
             else { // move can be done
                 if(currRow - 1 >= 0) {
                     if (matrix[currRow - 1][currCol] == null) {
-                        up = new Move(currPosition, new Position(currRow - 1, currCol));
-                        possibleMoves.add(up);
+                        upwards = new Move(currPosition, new Position(currRow - 1, currCol));
+                        possibleMoves.add(upwards);
                     }
                 }
                 if (currCol - 1 >= 0 && currRow -1 >=0) {
                     if (matrix[currRow - 1][currCol - 1] != null)
                         if (getColorMarker(matrix[currRow - 1][currCol - 1].getColor()) == 'B') {
-                            left = new Move(currPosition, new Position(currRow - 1, currCol - 1));
-                            possibleMoves.add(left);
-                        }
+                        leftSlant = new Move(currPosition, new Position(currRow - 1, currCol - 1));
+                        possibleMoves.add(leftSlant);
+                    }
                 }
                 if (currCol + 1 <= board.getBoardSize() - 1 && currRow -1 >= 0) {
                     if (matrix[currRow - 1][currCol + 1] != null)
                         if (getColorMarker(matrix[currRow - 1][currCol + 1].getColor()) == 'B') {
-                            right = new Move(currPosition, new Position(currRow - 1, currCol + 1));
-                            possibleMoves.add(right);
-                        }
+                        rightSlant = new Move(currPosition, new Position(currRow - 1, currCol + 1));
+                        possibleMoves.add(rightSlant);
+                    }
                 }
             }
             return possibleMoves;
@@ -53,23 +52,23 @@ public class Pawn extends Piece {
         else { // move can be done
             if(currRow + 1 <= board.getBoardSize()-1) {
                 if (matrix[currRow + 1][currCol] == null) {
-                    down = new Move(currPosition, new Position(currRow + 1, currCol));
-                    possibleMoves.add(down);
+                    downwards = new Move(currPosition, new Position(currRow + 1, currCol));
+                    possibleMoves.add(downwards);
 
                 }
             }
             if (currCol - 1 >= 0 && currRow + 1 <= board.getBoardSize() -1) {
                 if (matrix[currRow + 1][currCol - 1] != null)
                     if (getColorMarker(matrix[currRow + 1][currCol - 1].getColor()) == 'W' ) {
-                        left = new Move(currPosition, new Position(currRow + 1, currCol - 1));
-                        possibleMoves.add(left);
+                        leftSlant = new Move(currPosition, new Position(currRow + 1, currCol - 1));
+                        possibleMoves.add(leftSlant);
                     }
             }
             if (currCol + 1 <= board.getBoardSize() - 1 && currRow + 1 <= board.getBoardSize() -1) {
                 if (matrix[currRow + 1][currCol + 1] != null)
                     if (getColorMarker(matrix[currRow + 1][currCol + 1].getColor()) == 'W') {
-                        right = new Move(currPosition, new Position(currRow + 1, currCol + 1));
-                        possibleMoves.add(right);
+                        rightSlant = new Move(currPosition, new Position(currRow + 1, currCol + 1));
+                        possibleMoves.add(rightSlant);
                     }
             }
         }
@@ -84,6 +83,9 @@ public class Pawn extends Piece {
             Pawn other = (Pawn) obj;
             return getColorMarker(other.getColor()) == getColorMarker(this.getColor()) && other.getPosition().equals(this.getPosition());
         }
-        return false;
+    return false;
     }
 }
+
+
+
