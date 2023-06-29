@@ -21,7 +21,6 @@ public class Bishop extends Piece {
         int currCol = this.getPosition().getCol();
         int size = board.getBoardSize();
 
-        // get left upper slant moves:
         int currRow2 = currRow, currCol2 = currCol;
         while (true) {
             if (currCol2 - 1 >= 0 && currRow2 - 1 >= 0) {
@@ -31,11 +30,10 @@ public class Bishop extends Piece {
                     currCol2--;
                 } else if (getColorMarker(matrix[currRow][currCol].getColor()) != getColorMarker(matrix[currRow2 - 1][currCol2 - 1].getColor())) {
                     possibleMoves.add(new Move(this.getPosition(), new Position(currRow2 - 1, currCol2 - 1)));
-                    break; // cant keep adding
+                    break;
                 } else break;
             } else break;
         }
-        // left downwards slant moves:
         currRow2 = currRow;
         currCol2 = currCol;
         while (true) {
@@ -50,7 +48,6 @@ public class Bishop extends Piece {
                 } else break;
             } else break;
         }
-        // right upwards slant moves:
         currRow2 = currRow;
         currCol2 = currCol;
         while (true) {
@@ -65,7 +62,6 @@ public class Bishop extends Piece {
                 } else break;
             } else break;
         }
-        // right downward slant moves:
         currRow2 = currRow;
         currCol2 = currCol;
         while (true) {

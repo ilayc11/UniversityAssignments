@@ -72,12 +72,11 @@ public class Board {
                 this.removePiece(newPos);
                 this.matrix[newPos.getRow()][newPos.getCol()] = null;
             }
-            else return; // if same color, can't move to newPos
+            else return;
         }
         tmp.setPosition(newPos);
 
         this.matrix[oldRow][oldCol] = null;
-        // update the Board as well :
         this.matrix[newPos.getRow()][newPos.getCol()] = tmp;
         if(verifyPromotion(matrix[newPos.getRow()][newPos.getCol()]))
             promote(matrix[newPos.getRow()][newPos.getCol()]);
@@ -97,7 +96,6 @@ public class Board {
             else
                 return false;
         }
-        // else, color is Black :
         if(row == this.matrix.length -1 )
             return true;
         else

@@ -25,7 +25,7 @@ public class Tank extends Piece {
         int currRow = this.getPosition().getRow();
         int currCol = this.getPosition().getCol();
 
-        // check all 8 direction , including possibility for rocket move shot:
+        // check all 8 direction
 
         if(currRow - 1 >=0 && currCol - 1 >=0){
             if(matrix[currRow-1][currCol-1] != null && getCooldown() == 0)
